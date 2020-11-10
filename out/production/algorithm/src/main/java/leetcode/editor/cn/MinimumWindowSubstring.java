@@ -39,7 +39,7 @@ import java.util.Objects;
 public class MinimumWindowSubstring {
     public static void main(String[] args) {
         Solution solution = new MinimumWindowSubstring().new Solution();
-        System.out.println(solution.minWindow("ADOBECODEBANC", "ABC"));
+        System.out.println(solution.minWindow("bba", "ab"));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -63,7 +63,7 @@ public class MinimumWindowSubstring {
             while (leftIndex < sl && rightIndex < sl) {
                 int tempTl = tl;
                 HashMap<Character, Integer> tempMap = (HashMap<Character, Integer>) map.clone();
-                for (int j = leftIndex; j < rightIndex; j++) {
+                for (int j = leftIndex; (j <= rightIndex && j < sl); j++) {
                     Integer count = tempMap.get(sChars[j]);
                     if (Objects.nonNull(count)) {
                         count--;
@@ -74,13 +74,15 @@ public class MinimumWindowSubstring {
                     } else {
                         if (j == leftIndex) {
                             leftIndex++;
-                            rightIndex++;
+                            if (rightIndex - leftIndex < tl) {
+                                rightIndex++;
+                            }
                             continue;
                         }
                     }
-                    if (j == rightIndex - 1) {
+                    if (j >= rightIndex - 1) {
                         if (tempTl == 0) {
-                            String temp = s.substring(leftIndex, rightIndex);
+                            String temp = s.substring(leftIndex, j + 1);
                             if (temp.length() < maxString.length() || maxString.length() == 0) {
                                 maxString = temp;
                             }
@@ -92,9 +94,12 @@ public class MinimumWindowSubstring {
                         } else if (tempTl == tl) {
                             leftIndex += tl;
                             rightIndex = leftIndex + tl;
+                            if (rightIndex >= sl) {
+                                break;
+                            }
                         } else {
                             rightIndex++;
-                            if (rightIndex >= sl) {
+                            if (rightIndex > sl) {
                                 return maxString;
                             }
                         }
