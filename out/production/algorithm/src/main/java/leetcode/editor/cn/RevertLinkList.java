@@ -39,11 +39,11 @@ public class RevertLinkList {
      * }
      */
     class Solution {
-        public leetcode.editor.cn.ListNode reverseKGroup(ListNode head) {
-            leetcode.editor.cn.ListNode preNode = null, currentNode;
+        public ListNode reverseKGroup(ListNode head) {
+            ListNode preNode = null, currentNode;
             currentNode = head;
             while (currentNode != null) {
-                leetcode.editor.cn.ListNode temp = currentNode.next;
+                ListNode temp = currentNode.next;
                 currentNode.next = preNode;
                 preNode = currentNode;
                 currentNode = temp;
