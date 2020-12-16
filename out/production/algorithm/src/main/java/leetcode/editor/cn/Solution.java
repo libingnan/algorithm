@@ -63,7 +63,6 @@ public class Solution {
         nodes.add(temp);
         while (nodes.size() > 0) {
             ArrayList<Integer> arrayList = new ArrayList();
-
             ArrayList<TreeSNode> tempList = new ArrayList<>();
             while (nodes.size() > 0) {
                 TreeSNode x = nodes.poll();
