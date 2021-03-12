@@ -34,16 +34,14 @@ public class RemoveDuplicatesFromSortedListIi {
             ListNode ln = new ListNode();
             ListNode pn = head;
             while (pn != null) {
-                if (ln.val != pn.val) {
+                if (pn.next.val != pn.val) {
                     ln = pn;
                     pn = pn.next;
                 } else {
-                    
+                    pn = pn.next;
                 }
 
             }
-
-
             return head;
         }
     }
