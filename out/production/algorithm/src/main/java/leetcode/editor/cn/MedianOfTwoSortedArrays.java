@@ -64,39 +64,13 @@ public class MedianOfTwoSortedArrays {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
             if (nums1.length < nums2.length) {
                 return findMedianSortedArrays(nums2, nums1);
             }
 
-            boolean flag = ((nums1.length + nums2.length) & 1) == 1;
-            int flag1 = (nums1.length & 1) == 1 ? ((nums1.length) >> 1) : ((nums1.length - 1) >> 1);
-            int flag2 = ((nums2.length - 1) >> 1);
-            while (true) {
-                int maxLeft = nums1[flag1] > nums2[flag2] ? nums1[flag1] : nums2[flag2];
-                int minRight = nums1[flag1 + 1] < nums2[flag2 + 1] ? nums1[flag1 + 1] : nums2[flag2 + 1];
-                if (maxLeft <= minRight) {
-                    return flag ? maxLeft : ((double) maxLeft + (double) minRight) / 2d;
-                } else {
-                    if (maxLeft == nums1[flag1]) {
 
-                        if (flag2 < nums2.length - 2) {
-                            flag1--;
-                            flag2++;
-                        } else {
-                            return flag ? nums1[flag1 - 1] : nums1[flag1 - 1] + nums1[flag1] / 2d;
-                        }
-                    } else {
-                        if (flag2 > 0) {
-                            flag1++;
-                            flag2--;
-                        } else {
-                            return flag ? nums1[flag1 + 1] : (nums1[flag1] + nums1[flag1 + 1]) / 2d;
-                        }
-
-                    }
-                }
-            }
-
+            return 0.0D;
 
         }
     }

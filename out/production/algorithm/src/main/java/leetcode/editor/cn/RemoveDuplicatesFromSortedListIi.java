@@ -18,13 +18,13 @@ package leetcode.editor.cn;
 public class RemoveDuplicatesFromSortedListIi {
     public static void main(String[] args) {
         Solution solution = new RemoveDuplicatesFromSortedListIi().new Solution();
-        ListNode head = new ListNode(0);
+        ListNode head = new ListNode(1);
         head.next = new ListNode(1);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(4);
-        head.next.next.next.next.next = new ListNode(4);
-        head.next.next.next.next.next.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(1);
+        head.next.next.next.next = new ListNode(1);
+        head.next.next.next.next.next = new ListNode(1);
+        head.next.next.next.next.next.next = new ListNode(1);
 
         head = solution.deleteDuplicates(head);
 

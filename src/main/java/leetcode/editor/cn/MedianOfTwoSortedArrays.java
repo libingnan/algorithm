@@ -70,8 +70,7 @@ public class MedianOfTwoSortedArrays {
             }
 
 
-
-
+            return 0.0D;
 
         }
     }
